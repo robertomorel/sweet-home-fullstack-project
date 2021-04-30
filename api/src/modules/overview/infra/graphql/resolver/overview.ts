@@ -14,7 +14,9 @@ export default class OverviewResolver {
   }
 
   @Query(() => Overview, { nullable: true })
-  public async getOverview(@Args('id') id: string): Promise<Overview | undefined> {
+  public async getOverview(
+    @Args('id') id: string,
+  ): Promise<Overview | undefined> {
     return this.repoService.overviewRepo.findOne(id);
   }
 
@@ -23,7 +25,7 @@ export default class OverviewResolver {
     @Args('data') input: OverviewInput,
   ): Promise<Overview> {
     let overview = await this.repoService.overviewRepo.findOne({
-      where: { 
+      where: {
         price: input.price,
         beds: input.beds,
         baths: input.baths,
@@ -57,13 +59,11 @@ export default class OverviewResolver {
   public async deleteOverview(
     @Args('data') input: DeleteOverviewInput,
   ): Promise<void> {
-    const overview = await this.getOverview(input.id)
+    const overview = await this.getOverview(input.id);
 
     if (!overview) {
-      throw new Error(
-        'No overview were found!',
-      );
-    };
+      throw new Error('No overview were found!');
+    }
 
     await this.repoService.overviewRepo.delete(overview);
   }

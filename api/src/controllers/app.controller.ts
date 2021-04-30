@@ -8,6 +8,6 @@ export class AppController {
 
   @Get('/')
   async getHello(): Promise<string> {
-    return `There are ${await this.repoService.messageRepo.count()} existent messages`;
+    return `There are ${await this.repoService.propertyRepo.count()} existent messages`;
   }
 }

@@ -40,7 +40,10 @@ export default class Facts {
   @Column()
   stories: number;
 
-  @OneToOne(() => Property, property => property.factsConnection)
+  @OneToOne(
+    () => Property,
+    property => property.factsConnection,
+  )
   propertyConnection: Promise<Property>;
 
   @Field()

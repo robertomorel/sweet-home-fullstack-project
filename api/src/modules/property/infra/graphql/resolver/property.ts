@@ -30,7 +30,9 @@ export default class PropertyResolver {
   }
 
   @Query(() => Property, { nullable: true })
-  public async getProperty(@Args('id') id: string): Promise<Property | undefined> {
+  public async getProperty(
+    @Args('id') id: string,
+  ): Promise<Property | undefined> {
     return this.repoService.propertyRepo.findOne(id);
   }
 
@@ -76,12 +78,12 @@ export default class PropertyResolver {
   ): Promise<Property> {
     const property = await this.repoService.propertyRepo.findOne(input.id);
 
-    if ( !property
-         || property.factsId !== input.factsId
-         || property.overviewId !== input.overviewId )
-      throw new Error(
-        'No property was found!',
-      );
+    if (
+      !property ||
+      property.factsId !== input.factsId ||
+      property.overviewId !== input.overviewId
+    )
+      throw new Error('No property was found!');
 
     const copy = { ...property };
 

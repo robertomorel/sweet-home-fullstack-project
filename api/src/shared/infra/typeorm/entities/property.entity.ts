@@ -34,11 +34,15 @@ export default class Property {
 
   @Field(() => Facts)
   facts: Facts;
-  
-  @OneToOne(() => Facts, fact => fact.propertyConnection, { eager: true, primary: true })
+
+  @OneToOne(
+    () => Facts,
+    fact => fact.propertyConnection,
+    { eager: true, primary: true },
+  )
   @JoinColumn({ name: 'facts_id' })
   factsConnection: Promise<Facts>;
-  // ------------------------------- 
+  // -------------------------------
 
   // -- Overview -------------------
   @Field()
@@ -47,8 +51,12 @@ export default class Property {
 
   @Field(() => Overview)
   overview_id: Overview;
-  
-  @OneToOne(() => Overview, overview => overview.propertyConnection, { eager: true, primary: true })
+
+  @OneToOne(
+    () => Overview,
+    overview => overview.propertyConnection,
+    { eager: true, primary: true },
+  )
   @JoinColumn({ name: 'overview_id' })
   overviewConnection: Promise<Overview>;
   // -------------------------------

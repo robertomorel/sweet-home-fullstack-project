@@ -56,7 +56,10 @@ export default class Overview {
   @Column()
   available: 'T' | 'F';
 
-  @OneToOne(() => Property, property => property.overviewConnection)
+  @OneToOne(
+    () => Property,
+    property => property.overviewConnection,
+  )
   propertyConnection: Promise<Property>;
 
   @Field()

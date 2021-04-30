@@ -19,11 +19,9 @@ export default class FactsResolver {
   }
 
   @Mutation(() => Facts)
-  public async createFacts(
-    @Args('data') input: FactsInput,
-  ): Promise<Facts> {
+  public async createFacts(@Args('data') input: FactsInput): Promise<Facts> {
     let facts = await this.repoService.factsRepo.findOne({
-      where: { 
+      where: {
         type: input.type,
         yearBuilt: Number(input.yearBuilt),
         heating: input.heating,
@@ -53,13 +51,11 @@ export default class FactsResolver {
   public async deleteFacts(
     @Args('data') input: DeleteFactsInput,
   ): Promise<void> {
-    const facts = await this.getFacts(input.id)
+    const facts = await this.getFacts(input.id);
 
     if (!facts) {
-      throw new Error(
-        'No facts were found!',
-      );
-    };
+      throw new Error('No facts were found!');
+    }
 
     await this.repoService.factsRepo.delete(facts);
   }

@@ -11,11 +11,6 @@ input DeleteFactsInput {
   id: String!
 }
 
-input DeleteMessageInput {
-  id: Float!
-  userId: Float!
-}
-
 input DeleteOverviewInput {
   id: String!
 }
@@ -47,24 +42,7 @@ input FactsInput {
   stories: Float!
 }
 
-type Message {
-  id: Float!
-  userId: Float!
-  content: String!
-  createdAt: DateTime!
-  updatedAt: DateTime!
-  user: User!
-}
-
-input MessageInput {
-  content: String!
-  userId: Float!
-}
-
 type Mutation {
-  createOrLoginUser(data: UserInput!): User!
-  createMessage(data: MessageInput!): Message!
-  deleteMessage(data: DeleteMessageInput!): Message!
   createFacts(data: FactsInput!): Facts!
   deleteFacts(data: DeleteFactsInput!): Facts!
   createProperty(data: PropertiesInput!): Property!
@@ -119,11 +97,6 @@ type Property {
 }
 
 type Query {
-  getUsers: [User!]!
-  getUser(id: Float!): User
-  getMessages: [Message!]!
-  getMessagesFromUser(userId: Float!): [Message!]!
-  getMessage(id: Float!): Message
   getAllFacts: [Facts!]!
   getFacts(id: String!): Facts
   getProperties: [Property!]!
@@ -135,17 +108,5 @@ type Query {
 }
 
 type Subscription {
-  messageAdded: Message!
   propertyAdded: Property!
-}
-
-type User {
-  id: Float!
-  email: String!
-  createdAt: DateTime!
-  updatedAt: DateTime!
-}
-
-input UserInput {
-  email: String!
 }

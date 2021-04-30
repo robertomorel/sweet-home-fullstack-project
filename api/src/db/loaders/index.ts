@@ -1,5 +1,5 @@
-import UserLoader from './UserLoader';
+import FactsLoader from './FactsLoader';
 
 export const context = {
-  UserLoader: UserLoader(),
+  FactsLoader: FactsLoader(),
 };
