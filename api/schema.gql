@@ -1,0 +1,151 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+input DeleteFactsInput {
+  id: String!
+}
+
+input DeleteMessageInput {
+  id: Float!
+  userId: Float!
+}
+
+input DeleteOverviewInput {
+  id: String!
+}
+
+input DeletePropertiesInput {
+  id: String!
+  factsId: String!
+  overviewId: String!
+}
+
+type Facts {
+  id: String!
+  type: String!
+  yearBuilt: Float!
+  heating: String!
+  parking: String!
+  lot: String!
+  stories: Float!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+input FactsInput {
+  type: String!
+  yearBuilt: Float!
+  heating: String!
+  parking: String!
+  lot: String!
+  stories: Float!
+}
+
+type Message {
+  id: Float!
+  userId: Float!
+  content: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  user: User!
+}
+
+input MessageInput {
+  content: String!
+  userId: Float!
+}
+
+type Mutation {
+  createOrLoginUser(data: UserInput!): User!
+  createMessage(data: MessageInput!): Message!
+  deleteMessage(data: DeleteMessageInput!): Message!
+  createFacts(data: FactsInput!): Facts!
+  deleteFacts(data: DeleteFactsInput!): Facts!
+  createProperty(data: PropertiesInput!): Property!
+  deleteProperty(data: DeletePropertiesInput!): Property!
+  createOverview(data: OverviewInput!): Overview!
+  deleteOverview(data: DeleteOverviewInput!): Overview!
+}
+
+type Overview {
+  id: String!
+  price: Float!
+  beds: Float!
+  baths: Float!
+  neighborhood: String!
+  address: String!
+  city: String!
+  zipcode: Float!
+  available: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+input OverviewInput {
+  price: Float!
+  beds: Float!
+  baths: Float!
+  neighborhood: String!
+  address: String!
+  city: String!
+  zipcode: Float!
+  available: String!
+}
+
+input PropertiesInput {
+  homeImage: String!
+  images: String!
+  factsId: String!
+  overviewId: String!
+}
+
+type Property {
+  id: String!
+  homeImage: String!
+  images: String!
+  factsId: String!
+  facts: Facts!
+  overviewId: String!
+  overview_id: Overview!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  overview: Overview!
+}
+
+type Query {
+  getUsers: [User!]!
+  getUser(id: Float!): User
+  getMessages: [Message!]!
+  getMessagesFromUser(userId: Float!): [Message!]!
+  getMessage(id: Float!): Message
+  getAllFacts: [Facts!]!
+  getFacts(id: String!): Facts
+  getProperties: [Property!]!
+  getProperty(id: String!): Property
+  getPropertyByFactsId(factsId: String!): [Property!]!
+  getPropertyByOverviewId(overviewId: String!): [Property!]!
+  getAllOverview: [Overview!]!
+  getOverview(id: String!): Overview
+}
+
+type Subscription {
+  messageAdded: Message!
+  propertyAdded: Property!
+}
+
+type User {
+  id: Float!
+  email: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+input UserInput {
+  email: String!
+}
