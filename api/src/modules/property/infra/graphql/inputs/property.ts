@@ -13,6 +13,12 @@ export default class PropertiesInput {
 
   @Field()
   readonly overviewId: string;
+
+  @Field()
+  readonly othersId: string;
+
+  @Field()
+  readonly visitsId: string;
 }
 
 @InputType()
@@ -25,4 +31,10 @@ export class DeletePropertiesInput {
 
   @Field()
   readonly overviewId: string;
+
+  @Field()
+  readonly othersId: string;
+
+  @Field()
+  readonly visitsId: string;
 }

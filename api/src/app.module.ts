@@ -10,11 +10,15 @@ import RepoModule from './repositories/repo.module';
 import { AppController } from './controllers/app.controller';
 import PropertyResolver from './modules/property/infra/graphql/resolver/property';
 import OverviewResolver from './modules/overview/infra/graphql/resolver/overview';
+import OthersResolver from './modules/others/infra/graphql/resolver/others';
+import VisitsResolver from './modules/visits/infra/graphql/resolver/visits';
 
 const gqlImports = [
   FactsResolver,
   PropertyResolver,
   OverviewResolver,
+  OthersResolver,
+  VisitsResolver,
 ];
 
 @Module({

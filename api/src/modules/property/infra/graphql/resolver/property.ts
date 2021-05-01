@@ -12,8 +12,10 @@ import {
 import { PubSub } from 'graphql-subscriptions';
 import RepoService from 'src/repositories/repo.service';
 import Facts from 'src/shared/infra/typeorm/entities/facts.entity';
+import Others from 'src/shared/infra/typeorm/entities/others.entity';
 import Overview from 'src/shared/infra/typeorm/entities/overview.entity';
 import Property from 'src/shared/infra/typeorm/entities/property.entity';
+import Visits from 'src/shared/infra/typeorm/entities/visits.entity';
 import PropertiesInput, { DeletePropertiesInput } from '../inputs/property';
 
 //import { context } from '../db/loaders';
@@ -54,6 +56,24 @@ export default class PropertyResolver {
     });
   }
 
+  @Query(() => [Property])
+  public async getPropertyByOthersId(
+    @Args('othersId') othersId: string,
+  ): Promise<Property | undefined> {
+    return this.repoService.propertyRepo.findOne({
+      where: { othersId },
+    });
+  }
+
+  @Query(() => [Property])
+  public async getPropertyByVisitsId(
+    @Args('visitsId') visitsId: string,
+  ): Promise<Property | undefined> {
+    return this.repoService.propertyRepo.findOne({
+      where: { visitsId },
+    });
+  }
+
   @Mutation(() => Property)
   public async createProperty(
     @Args('data') input: PropertiesInput,
@@ -63,6 +83,8 @@ export default class PropertyResolver {
       images: input.images,
       factsId: input.factsId,
       overviewId: input.overviewId,
+      othersId: input.othersId,
+      visitsId: input.visitsId,
     });
 
     const response = await this.repoService.propertyRepo.save(property);
@@ -81,7 +103,9 @@ export default class PropertyResolver {
     if (
       !property ||
       property.factsId !== input.factsId ||
-      property.overviewId !== input.overviewId
+      property.overviewId !== input.overviewId ||
+      property.othersId !== input.othersId ||
+      property.visitsId !== input.visitsId
     )
       throw new Error('No property was found!');
 
@@ -107,6 +131,15 @@ export default class PropertyResolver {
     return this.repoService.overviewRepo.findOne(parent.overviewId);
   }
 
+  @ResolveField(() => Others, { name: 'others' })
+  public async getOthers(@Parent() parent: Property): Promise<Others> {
+    return this.repoService.othersRepo.findOne(parent.othersId);
+  }
+
+  @ResolveField(() => Visits, { name: 'visits' })
+  public async getVisits(@Parent() parent: Property): Promise<Visits> {
+    return this.repoService.visitsRepo.findOne(parent.visitsId);
+  }
   /*
   @ResolveField(() => Fact, { name: 'facts' })
   public async getFacts(

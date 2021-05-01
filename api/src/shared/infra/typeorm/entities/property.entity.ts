@@ -10,7 +10,9 @@ import {
 } from 'typeorm';
 
 import Facts from './facts.entity';
+import Others from './overview.entity';
 import Overview from './overview.entity';
+import Visits from './visits.entity';
 
 @ObjectType()
 @Entity({ name: 'properties' })
@@ -60,6 +62,40 @@ export default class Property {
   @JoinColumn({ name: 'overview_id' })
   overviewConnection: Promise<Overview>;
   // -------------------------------
+
+  // -- Others ---------------------
+   @Field()
+   @Column({ name: 'others_id' })
+   othersId: string;
+ 
+   @Field(() => Others)
+   others_id: Others;
+ 
+   @OneToOne(
+     () => Others,
+     others => others.propertyConnection,
+     { eager: true, primary: true },
+   )
+   @JoinColumn({ name: 'others_id' })
+   othersConnection: Promise<Others>;
+   // -------------------------------
+
+   // -- Visits ---------------------
+   @Field()
+   @Column({ name: 'visits_id' })
+   visitsId: string;
+ 
+   @Field(() => Visits)
+   visits_id: Visits;
+ 
+   @OneToOne(
+     () => Visits,
+     visits => visits.propertyConnection,
+     { eager: true, primary: true },
+   )
+   @JoinColumn({ name: 'visits_id' })
+   visitsConnection: Promise<Visits>;
+   // -------------------------------
 
   @Field()
   @CreateDateColumn({ name: 'created_at', select: false })

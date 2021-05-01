@@ -11,6 +11,10 @@ input DeleteFactsInput {
   id: String!
 }
 
+input DeleteOthersInput {
+  id: String!
+}
+
 input DeleteOverviewInput {
   id: String!
 }
@@ -19,6 +23,12 @@ input DeletePropertiesInput {
   id: String!
   factsId: String!
   overviewId: String!
+  othersId: String!
+  visitsId: String!
+}
+
+input DeleteVisitsInput {
+  id: String!
 }
 
 type Facts {
@@ -49,6 +59,31 @@ type Mutation {
   deleteProperty(data: DeletePropertiesInput!): Property!
   createOverview(data: OverviewInput!): Overview!
   deleteOverview(data: DeleteOverviewInput!): Overview!
+  createOthers(data: OthersInput!): Others!
+  deleteOthers(data: DeleteOthersInput!): Others!
+  createVisits(data: VisitsInput!): Visits!
+  deleteVisits(data: DeleteVisitsInput!): Visits!
+}
+
+type Others {
+  id: String!
+  anualTax: Float!
+  hasGarage: String!
+  pool: String!
+  virtualTourLink: String!
+  parcelNumber: Float!
+  lastSold: DateTime!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+input OthersInput {
+  anualTax: Float!
+  hasGarage: String!
+  pool: String!
+  virtualTourLink: String!
+  parcelNumber: Float!
+  lastSold: DateTime!
 }
 
 type Overview {
@@ -81,6 +116,8 @@ input PropertiesInput {
   images: String!
   factsId: String!
   overviewId: String!
+  othersId: String!
+  visitsId: String!
 }
 
 type Property {
@@ -91,9 +128,15 @@ type Property {
   facts: Facts!
   overviewId: String!
   overview_id: Overview!
+  othersId: String!
+  others_id: Overview!
+  visitsId: String!
+  visits_id: Visits!
   createdAt: DateTime!
   updatedAt: DateTime!
   overview: Overview!
+  others: Others!
+  visits: Visits!
 }
 
 type Query {
@@ -103,10 +146,29 @@ type Query {
   getProperty(id: String!): Property
   getPropertyByFactsId(factsId: String!): [Property!]!
   getPropertyByOverviewId(overviewId: String!): [Property!]!
+  getPropertyByOthersId(othersId: String!): [Property!]!
+  getPropertyByVisitsId(visitsId: String!): [Property!]!
   getAllOverview: [Overview!]!
   getOverview(id: String!): Overview
+  getAllOthers: [Others!]!
+  getOthers(id: String!): Others
+  getAllVisits: [Visits!]!
+  getVisits(id: String!): Visits
 }
 
 type Subscription {
   propertyAdded: Property!
+}
+
+type Visits {
+  id: String!
+  total: Float!
+  lastVisited: DateTime!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+input VisitsInput {
+  total: Float!
+  lastVisited: DateTime!
 }

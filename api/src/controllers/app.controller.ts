@@ -1,13 +1,13 @@
 import { Controller, Get } from '@nestjs/common';
 
-import RepoService from 'src/repositories/repo.service';
+import { AppService } from 'src/app.service';
 
 @Controller()
 export class AppController {
-  constructor(private readonly repoService: RepoService) {}
+  constructor(private readonly appService: AppService) {}
 
   @Get('/')
   async getHello(): Promise<string> {
-    return `There are ${await this.repoService.propertyRepo.count()} existent messages`;
+    return this.appService.getHello();
   }
 }

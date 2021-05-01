@@ -1,8 +1,12 @@
 import { Injectable } from '@nestjs/common';
+import RepoService from './repositories/repo.service';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return 'Hello World!';
+
+  constructor(private readonly repoService: RepoService) {}
+
+  async getHello(): Promise<string> {
+    return `Hello GraphQL!`;
   }
 }
