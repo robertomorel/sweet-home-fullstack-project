@@ -4,7 +4,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 
 import { AppService } from './app.service';
 import * as ormOptions from './config/orm';
-import { context } from './db/loaders';
+import { context } from './loaders';
 import FactsResolver from './modules/facts/infra/graphql/resolver/facts';
 import RepoModule from './repositories/repo.module';
 import { AppController } from './controllers/app.controller';

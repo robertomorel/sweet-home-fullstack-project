@@ -1,4 +1,4 @@
-api/data/*.db
+#api/data/*.db
 
 **/node_modules
 **/dist
