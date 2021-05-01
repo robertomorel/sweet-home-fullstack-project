@@ -104,7 +104,7 @@ docker run -d --name {container_name} -p 3333:3333 {name_image}
   },
 ```
 
-Example: 
+<b>Example</b>: 
 ```js
 "property":
   {
@@ -139,19 +139,7 @@ Example:
       "lastVisited": "12-12-2020"
     },
     "homeImage": "./images/property-1.jpg",
-    "images": [
-      "./images/property-1.jpg",
-      "./images/property-detail-1.jpg",
-      "./images/property-detail-2.jpg",
-      "./images/property-detail-3.jpg",
-      "./images/property-detail-4.jpg",
-      "./images/property-detail-5.jpg",
-      "./images/property-detail-6.jpg",
-      "./images/property-detail-7.jpg",
-      "./images/property-detail-8.jpg",
-      "./images/property-detail-9.jpg",
-      "./images/property-detail-10.jpg"
-    ]
+    "images": "property-1.jpg;property-detail-1.jpg;property-detail-2.jpg"
   }
 ```
 
@@ -285,7 +273,6 @@ query GetProperty2 {
 - Mutation
 ```bash
 # Mutations
-
 mutation CreateFacts {
   createFacts(data: {
     type: "Single Home",
