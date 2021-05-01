@@ -64,7 +64,7 @@ docker run -d --name {container_name} -p 3333:3333 {name_image}
 ```
 
 ## How to test
-### First we must understand the endpoints schemas
+### First we must understand the modules schemas
 ```js
 "property":
   {
@@ -350,5 +350,5 @@ mutation CreateProperty {
 ```
 ----------------------
 
-## Vamos Conversar?!
+## Let´s Talk?!
 - [LinkedIn](https://www.linkedin.com/in/roberto-morel-6b9065193/)
