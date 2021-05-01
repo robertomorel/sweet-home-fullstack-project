@@ -1,7 +1,5 @@
-import axios from 'axios';
+import ApolloClient from 'apollo-boost';
 
-const api = axios.create({
-  baseURL: 'http://localhost:3333',
+export default new ApolloClient({
+  uri: 'http://localhost:3333/graphql',
 });
-
-export default api;

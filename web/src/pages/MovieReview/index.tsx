@@ -53,116 +53,6 @@ const MovieReview: React.FC = () => {
 
   const { addToast } = useToast();
 
-  useEffect(() => {
-    try {
-      setLoading(true);
-
-      const findMovieDetail = async (): Promise<void> => {
-        // -- Buscando informações detalhadas do filme...
-        const response = await api.get('/movies', {
-          params: {
-            id: params.movieID,
-          },
-        });
-
-        setMovie(response.data);
-      };
-
-      findMovieDetail();
-
-      api
-        .get(`/reviews/${params.movieID}/me`)
-        .then(response => {
-          setMovieReview(response.data);
-        })
-        .catch(() => {
-          api
-            .post('/reviews', {
-              movie_id: params.movieID,
-            })
-            .then(resp => {
-              setMovieReview(resp.data);
-            })
-            .catch(err => {
-              console.log(err);
-              addToast({
-                type: 'error',
-                title: 'Review failed!',
-                description:
-                  'Error ocurrency on trying to find or create a new review. Try again!',
-              });
-            });
-        });
-    } finally {
-      setLoading(false);
-    }
-  }, [params.movieID, addToast]);
-
-  const handleLike = useCallback(async () => {
-    try {
-      setLoading(true);
-
-      const setLike = async (): Promise<void> => {
-        const { data } = await api.put('/reviews/like', {
-          movie_id: params.movieID,
-        });
-
-        if (data) {
-          setMovieReview(data);
-        }
-      };
-
-      setLike();
-
-      addToast({
-        type: 'success',
-        title: 'Like successfull!',
-      });
-    } catch (err) {
-      addToast({
-        type: 'error',
-        title: 'Like failed!',
-        description: 'Error ocurrency on liking a movie. Try again!',
-      });
-    } finally {
-      setLoading(false);
-    }
-  }, [addToast, params.movieID]);
-
-  const handleDislike = useCallback(async () => {
-    try {
-      setLoading(true);
-
-      const setLike = async (): Promise<void> => {
-        const { data } = await api.put('/reviews/dislike', {
-          movie_id: params.movieID,
-        });
-
-        if (data) {
-          setMovieReview(data);
-        }
-      };
-
-      setLike();
-
-      addToast({
-        type: 'success',
-        title: 'Dislike successfull!',
-      });
-    } catch (err) {
-      addToast({
-        type: 'error',
-        title: 'Dislike failed!',
-        description: 'Error ocurrency on disliking a movie. Try again!',
-      });
-    } finally {
-      setLoading(false);
-    }
-  }, [addToast, params.movieID]);
-
-  const handleBack = useCallback(() => {
-    history.push('/');
-  }, [history]);
 
   return (
     <Container>
@@ -176,7 +66,7 @@ const MovieReview: React.FC = () => {
             </div>
           </Profile>
 
-          <button type="button" onClick={handleBack}>
+          <button type="button" onClick={() => {}}>
             <FiArrowLeft />
           </button>
         </HeaderContent>
@@ -249,11 +139,11 @@ const MovieReview: React.FC = () => {
       </Content>
       <ReviewActions>
         <div>
-          <button type="button" onClick={handleLike}>
+          <button type="button" onClick={() => {}}>
             <FaHeart />
           </button>
           <div />
-          <button type="button" onClick={handleDislike}>
+          <button type="button" onClick={() => {}}>
             <FaHeartBroken />
           </button>
         </div>

@@ -104,7 +104,7 @@ const Dashboard: React.FC = () => {
 
   useEffect(() => {
     if (user) {
-      
+
     }
   }, [user]);
 
@@ -153,7 +153,7 @@ const Dashboard: React.FC = () => {
           abortEarly: false,
         });
 
-        
+
         addToast({
           type: 'success',
           title: 'Search successful!',
@@ -230,7 +230,7 @@ const Dashboard: React.FC = () => {
   }, []);
 
   return (
-    <Container>
+    <Container data-testid="home_page">
       <Header>
         <HeaderContent>
           <Profile>
