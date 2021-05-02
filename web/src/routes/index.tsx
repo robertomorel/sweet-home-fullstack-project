@@ -1,19 +1,13 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import Home from '../pages/Home';
-import Dashboard from '../pages/Dashboard';
-import MovieReview from '../pages/MovieReview';
+import { Home, Listing, Detail } from '../pages';
 
 const Routes: React.FC = () => (
   <Switch>
     <Route path="/" exact component={Home} />
-    <Route path="/dashboard" exact component={Dashboard} />
-    <Route path="/movieReview/:movieID+" exact component={MovieReview} />
-    {/*
-    <Route path="/" exact component={MovieReview} />
-    <Route path="/teste" exact component={Dashboard} />
-    */}
+    <Route path="/listing" exact component={Listing} />
+    <Route path="/detail/:propertyId" exact component={Detail} />
   </Switch>
 );
 

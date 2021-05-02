@@ -7,7 +7,7 @@ import Routes from './routes';
 import { actionFetchPropertyList, actionRequestProperty, selectProperty, useActionDispatch } from './store';
 import { GET_ALL_PROPERTIES } from './services/apollo';
 import { PropertyProps } from './types';
-import { Spinner, SpinnerWrapper } from './components';
+import { MainHeader, Spinner, SpinnerWrapper } from './components';
 
 const App: React.FC = () => {
   const { loading: loadingState, property } = useSelector(selectProperty);
@@ -32,11 +32,12 @@ const App: React.FC = () => {
   return (
     <>
       {(loadingState || loading) ? (
-        <SpinnerWrapper>
+        <SpinnerWrapper style={{height:'60rem'}}>
           <Spinner />
         </SpinnerWrapper>
       ) : (
         <BrowserRouter>
+          {/*<MainHeader />*/}
           <Routes />
         </BrowserRouter>
       )}

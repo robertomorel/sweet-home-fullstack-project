@@ -39,7 +39,7 @@ interface SearchFormData {
   search: string;
 }
 
-const Dashboard: React.FC = () => {
+export const Home: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [newFeature, setNewFeature] = useState('');
   const { loading: loadingState, property, error } = useSelector(selectProperty);
@@ -237,5 +237,3 @@ const Dashboard: React.FC = () => {
     </Container>
   );
 };
-
-export default Dashboard;

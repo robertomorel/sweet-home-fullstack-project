@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { shade } from 'polished';
 
 export const Header = styled.header`
-  padding: 32px 0;
+  padding-top: 32px;
   background: var(--gray-850);
 `;
 
@@ -11,12 +11,34 @@ export const HeaderContent = styled.div`
   margin: 0 auto;
   display: flex;
   align-items: center;
+
+  button {
+    margin-left: auto;
+    background: transparent;
+    border: 0;
+    color: #999591;
+
+    svg {
+      width: 20px;
+      height: 20px;
+      transition: 0.2s;
+    }
+
+    &:hover {
+      color: ${shade(0.2, '#ff9f1c')};
+    }
+  }
 `;
 
-export const Profile = styled.div`
+interface ProfileProps {
+  hideMenu?: boolean;
+}
+
+export const Profile = styled.div<ProfileProps>`
   display: flex;
   align-items: center;
   margin-left: 50px;
+  padding-bottom: ${props => (props.hideMenu && 70)}px;
 
   img {
     width: 4rem;
@@ -42,4 +64,58 @@ export const Profile = styled.div`
       font-size: 1.1rem;
     }
   }
+`;
+
+export const Menu = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  nav {
+    margin-left: 5rem;
+    height: 5rem;
+
+    a {
+      display: inline-block;
+      position: relative;
+      padding: 0 0.5rem;
+      height: 5rem;
+      line-height: 5rem;
+      color: var(--gray-300);
+      transition: color 0.2s;
+
+      & + a {
+        margin-left: 2rem;
+      }
+
+      &:hover {
+        color: var(--white);
+      }
+    }
+  }
+`;
+
+interface LinkProps {
+  active?: boolean;
+}
+
+export const Link = styled.a<LinkProps>`
+  ${props => props.active && css`
+    && {
+      color: var(--white);
+      font-weight: bold;
+    }
+
+    &&:after {
+        content: '';
+        height: 3px;
+        border-radius: 3px 3px 0 0;
+        width: 100%;
+        position: absolute;
+        bottom: 1px;
+        left: 0;
+        background: var(--yellow-500);
+      }
+    }
+  `}
 `;

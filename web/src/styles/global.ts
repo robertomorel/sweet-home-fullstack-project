@@ -24,6 +24,8 @@ export default createGlobalStyle`
     --gray-870: #232129;
     --gray-900: #121215;
 
+    --gray-with-opacity: rgba(80,80,80,0.5);
+
     --red-300: #c53030;
 
     --cyan-500: #61dafb;
