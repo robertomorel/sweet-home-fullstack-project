@@ -3,6 +3,7 @@ import { gql } from 'apollo-boost';
 export const GET_ALL_PROPERTIES = gql`
   query {
     getProperties {
+      id
       homeImage
       images
       facts {
@@ -10,6 +11,7 @@ export const GET_ALL_PROPERTIES = gql`
         yearBuilt
       }
       overview {
+        price
         beds
         baths
         neighborhood

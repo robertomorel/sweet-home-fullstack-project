@@ -9,7 +9,7 @@ interface ContainerProps {
 }
 
 export const Container = styled.div<ContainerProps>`
-  background: #232129;
+  background: var(--gray-870);
   border-radius: 10px;
   padding: 10px;
   width: 100%;
@@ -22,39 +22,39 @@ export const Container = styled.div<ContainerProps>`
     margin-top: 8px;
   }
 
-  border: 2px solid #232129;
-  color: #666360;
+  border: 2px solid var(--gray-870);
+  color: var(--gray-500);
 
 /* Regra para a borda ficar vermelha caso exista erro no campo */
 ${props =>
   props.isErrored &&
   css`
-    border-color: #c53030;
+    border-color: var(--red-300);
   `}
 
 /* Regra para o container ficar laranja caso o input esteja em foco. */
   ${props =>
     props.isFocused &&
     css`
-      border-color: #ff9000;
-      color: #ff9000;
+      border-color: var(--yellow-500);
+      color: var(--yellow-500);
     `}
 
   /* Regra para o ícone também ficar laranja caso o campo esteja preenchido. */
   ${props =>
     props.isFilled &&
     css`
-      color: #ff9000;
+      color: var(--yellow-500);
     `}
 
   input {
     flex: 1;
     background: transparent;
     border: 0;
-    color: #f4ede8;
+    color: var(--gray-30);
 
     &::placeholder {
-      color: #666360;
+      color: var(--gray-500);
     }
   }
 
@@ -72,11 +72,11 @@ export const Error = styled(Tooltip)`
   }
 
   span {
-    background: #c53030;
-    color: #fff;
+    background: var(--red-300);
+    color: var(--white);
 
     &::before {
-      border-color: #c53030;
+      border-color: var(--red-300);
     }
   }
 `;

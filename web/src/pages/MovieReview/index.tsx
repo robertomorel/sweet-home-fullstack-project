@@ -14,7 +14,7 @@ import {
   MovieInfo,
   ReviewActions,
 } from './styles';
-import imgProfile from '../../assets/logo.png';
+import imgProfile from '../../assets/logo.jpeg';
 import api from '../../services/api';
 
 interface MovieParams {

@@ -23,19 +23,11 @@ const icons = {
 const Toast: React.FC<ToastProps> = ({ message, style }) => {
   const { removeToast } = useToast();
 
-  // -- Sempre que um novo toast for adicionado em tela, este hook é chamado
-  // -- PAra que, após 3s de criado, o toast se auto delete.
   useEffect(() => {
     const timer = setTimeout(() => {
       removeToast(message.id);
     }, 3000);
 
-    /**
-     * No react, caso retornemos uma função no useEffcet, ela é executada automaticamente
-     * caso o componente deixa de existir.
-     *
-     * Esta lógica vai ser usada para caso o usuário feche o toast antes dos 3s.
-     */
     return () => {
       clearTimeout(timer);
     };

@@ -13,15 +13,21 @@ export default createGlobalStyle`
   :root {
     --white: #fff;
 
+    --gray-30: #f4ede8;
     --gray-100: #e1e1e6;
     --gray-300: #a8a8b3;
+    --gray-500: #666360;
     --gray-700: #323238;
     --gray-800: #29292e;
+    --gray-830: #999591;
     --gray-850: #1f2729;
+    --gray-870: #232129;
     --gray-900: #121215;
 
+    --red-300: #c53030;
+
     --cyan-500: #61dafb;
-    --yellow-500: #eba417;
+    --yellow-500: #ff9f1c;
   }
 
   @media (max-width: 1080px) {

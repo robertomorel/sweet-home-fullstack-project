@@ -3,48 +3,10 @@ import { shade } from 'polished';
 
 export const Container = styled.div``;
 
-export const Header = styled.header`
-  padding: 32px 0;
-  background: var(--gray-850);
-`;
-
-export const HeaderContent = styled.div`
-  max-width: 100%;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-`;
-
-export const Profile = styled.div`
-  display: flex;
-  align-items: center;
-  margin-left: 50px;
-
-  img {
-    width: 5rem;
-    height: 5rem;
-    border-radius: 50%;
-  }
-
-  div {
-    display: flex;
-    flex-direction: column;
-    margin-left: 16px;
-    line-height: 24px;
-
-    span {
-      color: #f4ede8;
-    }
-
-    strong {
-      color: #ff9f1c;
-    }
-  }
-`;
-
 export const Content = styled.main`
   max-width: 1120px;
-  margin: 64px auto;
+  margin: 35px auto;
+  padding-left: 35px;
   display: flex;
 `;
 
@@ -54,12 +16,12 @@ export const Search = styled.div`
   position: relative;
 
   h1 {
-    font-size: 36px;
+    font-size: 2rem;
   }
 
   p {
     margin-top: 8px;
-    color: #ff9f1c;
+    color: var(--yellow-500);
     display: flex;
     align-items: center;
     font-weight: 500;
@@ -69,14 +31,11 @@ export const Search = styled.div`
       align-items: center;
     }
 
-    /**
-     * A partir do segundo span, é desenhada uma barra vertical antes do elemento.
-     */
     span + span::before {
       content: '';
       width: 1px;
       height: 12px;
-      background: #ff9f1c;
+      background: var(--yellow-500);
       margin: 0 8px;
     }
   }
@@ -104,7 +63,7 @@ export const Search = styled.div`
     right: 5px;
     background: transparent;
     border: 0;
-    color: #999591;
+    color: var(--gray-830);
 
     svg {
       width: 20px;
@@ -213,5 +172,27 @@ export const Movie = styled.div`
     &:hover {
       transform: translateX(10px);
     }
+  }
+`;
+
+export const PropertiesContent = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0px;
+
+  > div {
+    transform:scale(1, 1);
+    transition: .5s;
+
+    &:hover {
+      transform:scale(1.1, 1.1);
+      z-index: 1;
+    }
+  }
+
+  div + div {
+    margin-left: 8px;
   }
 `;

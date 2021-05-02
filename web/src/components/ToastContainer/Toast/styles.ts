@@ -21,11 +21,6 @@ const toastTypeVariations = {
   `,
 };
 
-/**
- * Para que este componente possa ser animado com o react-spring, ele não pode ser
- * do tipo de um HTML comum, precisa ser animated.(elemento).
- */
-// export const Container = styled.div<ContainerProps>`
 export const Container = styled(animated.div)<ContainerProps>`
   width: 360px;
 
@@ -36,16 +31,10 @@ export const Container = styled(animated.div)<ContainerProps>`
 
   display: flex;
 
-  /* Para todos os toasts após o primeiro toast, dar uma margem em cima de 8px */
   & + div {
     margin-top: 8px;
   }
 
-  /*
-     Para que os toasts apareçam com estilização de acordo com seu tipo.
-     Está usando a variável toastTypeVariations, que é um objeto contendo
-     os estilos CSS
-  */
   ${props => toastTypeVariations[props.type || 'info']}
 
   > svg {

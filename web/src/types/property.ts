@@ -33,6 +33,7 @@ export interface VisitsProps {
 };
 
 export interface PropertyProps {
+  id: string;
   homeImage?: string;
   images?: string;
   overview?: OverviewProps;

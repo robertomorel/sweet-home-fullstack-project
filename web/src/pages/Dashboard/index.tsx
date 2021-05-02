@@ -32,7 +32,7 @@ import {
   Section,
   Movie,
 } from './styles';
-import imgProfile from '../../assets/logo.png';
+import imgProfile from '../../assets/logo.jpeg';
 import getValidationErrors from '../../utils/getValidationErrors';
 import api from '../../services/api';
 
@@ -104,7 +104,7 @@ const Dashboard: React.FC = () => {
 
   useEffect(() => {
     if (user) {
-      
+
     }
   }, [user]);
 
@@ -153,7 +153,7 @@ const Dashboard: React.FC = () => {
           abortEarly: false,
         });
 
-        
+
         addToast({
           type: 'success',
           title: 'Search successful!',
