@@ -27,7 +27,7 @@ In order to know more details about the API (NestJS) or the Application (ReactJS
 - [Web - Frontend](https://github.com/robertomorel/sweet-home-fullstack-project/tree/master/web)
 
 ## How to Test
-I´ve separated three different way to run this project by almost a single command
+I´ve separated three different ways to run this project by almost a single command
 
 ### Cloning the project 
 Run the commands bellow:
