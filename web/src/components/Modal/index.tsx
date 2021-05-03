@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from 'react-bootstrap/Modal';
+//import Modal from 'react-bootstrap/Modal';
 
 interface ModalProps {
   onHide?: () => void;
@@ -7,7 +7,10 @@ interface ModalProps {
 }
 
 export const MyVerticallyCenteredModal:React.FC<ModalProps> = ({ onHide, ...rest}) => {
+  /** @todo */
   return (
+    <h1>Modal</h1>
+    /*
     <Modal
       {...rest}
       size="lg"
@@ -31,5 +34,6 @@ export const MyVerticallyCenteredModal:React.FC<ModalProps> = ({ onHide, ...rest
         <button onClick={onHide}>Close</button>
       </Modal.Footer>
     </Modal>
+    */
   );
 }
