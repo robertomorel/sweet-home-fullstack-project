@@ -20,3 +20,48 @@ Sweet Home Application
 <h2 align="center">
   🚀 This is an amazing APP of renting properties in USA 🚀
 </h2>
+
+## Getting Started
+In order to know more details about the API (NestJS) or the Application (ReactJS), access each individual projects:
+- [API - Backend](https://github.com/robertomorel/sweet-home-fullstack-project/tree/master/api)
+- [Web - Frontend](https://github.com/robertomorel/sweet-home-fullstack-project/tree/master/web)
+
+## How to Test
+I´ve separated three different way to run this project by almost a single command
+
+### Cloning the project 
+Run the commands bellow:
+```bash
+# Clone the repository
+git clone https://github.com/robertomorel/sweet-home-fullstack-project.git
+
+# Enter in the project
+cd ./sweet-home-fullstack-project
+```
+
+### Using Bash
+Run the command(s) bellow:
+```bash
+./init.sh
+```
+
+### Using Docker Compose
+Run the command(s) bellow:
+```bash
+docker-compose up --build
+```
+
+### Using Lerna
+Run the command(s) bellow:
+```bash
+# Installing dependencies with Lerna
+yarn install
+
+# Starting both projects with Lerna
+yarn start
+```
+
+----------------------
+
+## Let´s Talk?!
+- [LinkedIn](https://www.linkedin.com/in/roberto-morel-6b9065193/)
