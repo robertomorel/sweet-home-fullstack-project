@@ -1,6 +1,19 @@
 {
-  "dependencies": {
-    "@material-ui/core": "^4.11.4",
-    "react-bootstrap": "^1.5.2"
-  }
+  "private": true,
+  "workspaces": [
+    "api/*",
+    "web/*"
+  ],
+  "scripts": {
+    "new-version": "lerna version --conventional-commits --yes",
+    "diff": "lerna diff",
+    "start": "lerna run start --parallel",
+    "test": "lerna run test --since",
+    "install": "lerna bootstrap",
+    "publish": "lerna publish"
+  },
+  "devDependencies": {
+    "lerna": "^3.22.1"
+  },
+  "name": "yarn-workspaces-example"
 }

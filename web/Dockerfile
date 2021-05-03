@@ -1,11 +1,19 @@
-FROM node:14
+# pull official base image
+FROM node:13.12.0-alpine
 
+# set working directory
 WORKDIR /app
 
+# add `/app/node_modules/.bin` to $PATH
 ENV PATH /app/node_modules/.bin:$PATH
 
-COPY package.json ./
-COPY package-lock.json ./
+# install app dependencies
+COPY package*.json ./
+
 RUN npm install --silent
 
+# add app
+COPY . ./
+
+# start app
 CMD ["yarn", "start"]
