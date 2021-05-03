@@ -10,7 +10,7 @@ ENV PATH /app/node_modules/.bin:$PATH
 # install app dependencies
 COPY package*.json ./
 
-RUN npm install --silent
+RUN yarn install --silent
 
 # add app
 COPY . ./
