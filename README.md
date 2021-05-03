@@ -17,4 +17,6 @@ Sweet Home Application
   <a href="https://redux.js.org/"><img src="https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white" alt="Redux" /></a>
 </p>
 
-<p align="center">🚀 This is an amazing APP of renting properties in USA 🚀</p>
+<h2 align="center">
+  🚀 This is an amazing APP of renting properties in USA 🚀
+</h2>
