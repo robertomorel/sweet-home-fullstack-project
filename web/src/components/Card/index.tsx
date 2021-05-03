@@ -32,7 +32,11 @@ export const Card: React.FC<CardsProps> = ({
               <p>{`Baths: ${baths}`}</p>
               <p>{`Adress: ${address}`}</p>
               <p>{`ZIP Code: ${zipCode}`}</p>
-              <p>{`Available: ${available}`}</p>
+              {available ? (
+                <p>Available: &nbsp;<b style={{ color: '#1B5E20' }}>YES</b></p>
+              ) : (
+                <p>Available: &nbsp;<b style={{ color: '#c53030' }}>NO</b></p>
+              )}
             </div>
 
           <FiChevronRight size={20} />

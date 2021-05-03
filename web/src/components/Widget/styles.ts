@@ -20,7 +20,7 @@ export const PropertyBox = styled.div`
 
   &:hover {
     border: 2px solid ${shade(0.2, '#ff9f1c')};
-    cursor: pointer;
+    //cursor: pointer;
   }
 
   > span {

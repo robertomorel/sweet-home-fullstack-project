@@ -13,6 +13,8 @@ export default createGlobalStyle`
   :root {
     --white: #fff;
 
+    --white-opacity: rgba(255,255,255,0.9);
+
     --gray-30: #f4ede8;
     --gray-100: #e1e1e6;
     --gray-300: #a8a8b3;
@@ -24,9 +26,11 @@ export default createGlobalStyle`
     --gray-870: #232129;
     --gray-900: #121215;
 
-    --gray-with-opacity: rgba(80,80,80,0.5);
+    --gray-with-opacity: rgba(80,80,80,0.2);
 
     --red-300: #c53030;
+
+    --green-500: #1B5E20;
 
     --cyan-500: #61dafb;
     --yellow-500: #ff9f1c;

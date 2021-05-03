@@ -13,10 +13,11 @@ export const Card = styled.div`
   a {
     text-decoration: none;
     width: 97%;
+    cursor: pointer;
 
     div {
       flex: 1;
-      background: var(--gray-with-opacity);
+      background-color: var(--gray-with-opacity);
       display: flex;
       align-items: center;
       padding: 10px 24px;
@@ -24,9 +25,9 @@ export const Card = styled.div`
       margin-right: 10px;
 
       img {
-        width: 15.6rem;
-        height: 12.3rem;
-        border-radius: 2%;
+        width: 16rem;
+        height: 12.9rem;
+        border-radius: 10px;
       }
 
       div {

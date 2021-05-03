@@ -9,6 +9,10 @@ export const GET_ALL_PROPERTIES = gql`
       facts {
         type
         yearBuilt
+        heating
+        parking
+        lot
+        stories
       }
       overview {
         price

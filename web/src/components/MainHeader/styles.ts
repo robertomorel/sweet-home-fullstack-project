@@ -13,14 +13,14 @@ export const HeaderContent = styled.div`
   align-items: center;
 
   button {
-    margin-left: auto;
+    margin: 0 50px 50px auto;
     background: transparent;
     border: 0;
     color: #999591;
 
     svg {
-      width: 20px;
-      height: 20px;
+      width: 1.6rem;
+      height: 1.6rem;
       transition: 0.2s;
     }
 
