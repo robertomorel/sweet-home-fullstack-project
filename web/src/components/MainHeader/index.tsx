@@ -50,7 +50,7 @@ export const MainHeader: React.FC<MainHeaderProps> = ({ hideMenu }) => {
           <img src={imgProfile} alt="Profile" />
 
           <div>
-            <span>Wellcome,</span>
+            <span>Welcome,</span>
             <strong data-testid="user_ip">{user}</strong>
           </div>
         </Profile>
