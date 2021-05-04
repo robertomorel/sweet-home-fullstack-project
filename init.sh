@@ -2,19 +2,21 @@
 
 npm install -g yarn
 
-WORKSPACE_FOLDER=workspace
-
 echo ">>> Installing Dependencies"
 
+echo ">>> API"
 cd api 
-yarn install &
+yarn install
 
+echo ">>> Web"
 cd ../web
-yarn install &
+yarn install
 
 echo ">>> Running Projects"
+echo ">> API"
 cd ../api
 yarn start &
 
+echo ">> Web"
 cd ../web
 yarn start &
