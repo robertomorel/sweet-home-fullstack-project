@@ -51,7 +51,7 @@ Run the command(s) bellow:
 docker-compose up --build
 ```
 
-### Using Lerna
+### Using Lerna [*Do not recommend*]
 Run the command(s) bellow:
 ```bash
 # Installing dependencies with Lerna
