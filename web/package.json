@@ -1,5 +1,8 @@
 {
-  "name": "github_explorer",
+  "name": "sweet-home-web-app",
+  "author": {
+    "name": "Roberto Morel"
+  },
   "version": "0.1.0",
   "private": true,
   "dependencies": {
