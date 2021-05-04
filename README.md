@@ -48,7 +48,7 @@ Run the command(s) bellow:
 ### Using Docker Compose
 Run the command(s) bellow:
 ```bash
-docker-compose up --build
+docker-compose up -d --build
 ```
 
 ### Using Lerna [*Do not recommend*]
