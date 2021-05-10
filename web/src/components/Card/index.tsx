@@ -20,8 +20,11 @@ export const Card: React.FC<CardsProps> = ({
   const history = useHistory()
 
   return (
-    <CompCard>
-      <a key="teste" onClick={() => history.push(`/detail/${propId}`)}>
+    <CompCard data-testid='card-component'>
+      <a
+        key={propId}
+        onClick={() => history.push(`/detail/${propId}`)}
+        data-testid='card-component-link'>
         <div>
           <img src={require(`../../assets/${imageStr}`)} alt="Casa" />
             <div>
@@ -39,7 +42,7 @@ export const Card: React.FC<CardsProps> = ({
               )}
             </div>
 
-          <FiChevronRight size={20} />
+          <FiChevronRight size={20} name='moveFoward' />
         </div>
       </a>
     </CompCard>
