@@ -44,7 +44,7 @@ export const MainHeader: React.FC<MainHeaderProps> = ({ hideMenu }) => {
   }, []);
 
   return (
-    <Header>
+    <Header data-testid='main-header-component'>
       <HeaderContent>
         <Profile hideMenu={hideMenu}>
           <img src={imgProfile} alt="Profile" />
@@ -56,7 +56,7 @@ export const MainHeader: React.FC<MainHeaderProps> = ({ hideMenu }) => {
         </Profile>
 
         {hideMenu && (
-          <button type="button" onClick={() => history.goBack()}>
+          <button type="button" onClick={() => history.goBack()} name='goback'>
             <FiArrowLeft />
           </button>
         )}
