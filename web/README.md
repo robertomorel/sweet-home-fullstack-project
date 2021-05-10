@@ -81,6 +81,13 @@ docker build -t {name_image} .
 docker run -d --name {container_name} -p 3000:3000 {name_image}
 ```
 
+## Running Tests
+
+Run the following command:
+```bash
+yarn test
+```
+
 ## How to test
 
 Follow the business rules mentioned above in order to discover all available features implemented.
